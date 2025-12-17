@@ -112,6 +112,7 @@
             
             <div class="status">
                 > SCANNING PEER NODES...<span class="blink">█</span><br>
+                > REQUESTED: <span id="filename">unknown</span><br>
                 > MESH INTEGRITY: 23% OPERATIONAL<br>
                 > LAST SYNC: 2050.03.15 14:27:33 UTC
             </div>
@@ -134,5 +135,11 @@
     <div class="footer">
         MeshNet Framework v7.3.2 | Open Source Survivor Network | Est. 2047
     </div>
+    
+    <script>
+        const path = window.location.pathname;
+        const filename = path.split('/').pop() || 'root';
+        document.getElementById('filename').textContent = filename;
+    </script>
 </body>
 </html>
