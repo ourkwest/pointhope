@@ -5,35 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>404 - Node Unreachable | MeshNet v7.3</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap');
-        
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
-            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
-            color: #00ff88;
-            font-family: 'Orbitron', monospace;
+            background: #1a1a1a;
+            color: #e0e0e0;
+            font-family: 'Consolas', 'Monaco', monospace;
             height: 100vh;
-            overflow: hidden;
             position: relative;
-        }
-        
-        .grid {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                linear-gradient(rgba(0,255,136,0.1) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0,255,136,0.1) 1px, transparent 1px);
-            background-size: 50px 50px;
-            animation: gridMove 20s linear infinite;
-        }
-        
-        @keyframes gridMove {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(50px, 50px); }
         }
         
         .container {
@@ -49,34 +28,24 @@
         }
         
         .error-code {
-            font-size: 8rem;
-            font-weight: 900;
-            color: #ff0040;
-            text-shadow: 0 0 20px #ff0040, 0 0 40px #ff0040;
+            font-size: 6rem;
+            font-weight: bold;
+            color: #d32f2f;
             margin-bottom: 20px;
-            animation: glitch 2s infinite;
-        }
-        
-        @keyframes glitch {
-            0%, 90%, 100% { transform: translate(0); }
-            20% { transform: translate(-2px, 2px); }
-            40% { transform: translate(-2px, -2px); }
-            60% { transform: translate(2px, 2px); }
-            80% { transform: translate(2px, -2px); }
         }
         
         .server-info {
-            background: rgba(0,0,0,0.8);
-            border: 2px solid #00ff88;
-            border-radius: 10px;
+            background: #2a2a2a;
+            border: 1px solid #555;
+            border-radius: 4px;
             padding: 30px;
             margin: 20px 0;
-            box-shadow: 0 0 30px rgba(0,255,136,0.3);
+            max-width: 600px;
         }
         
         .server-name {
             font-size: 1.5rem;
-            color: #00ff88;
+            color: #4caf50;
             margin-bottom: 10px;
         }
         
@@ -88,11 +57,11 @@
         
         .status {
             font-family: monospace;
-            background: #000;
+            background: #333;
             padding: 15px;
-            border-radius: 5px;
+            border-radius: 3px;
             margin: 20px 0;
-            border-left: 4px solid #ff0040;
+            border-left: 3px solid #d32f2f;
         }
         
         .mesh-status {
@@ -103,16 +72,16 @@
         }
         
         .node {
-            background: rgba(0,255,136,0.1);
-            border: 1px solid #00ff88;
+            background: #333;
+            border: 1px solid #666;
             padding: 10px;
-            border-radius: 5px;
+            border-radius: 3px;
             margin: 5px;
             font-size: 0.9rem;
         }
         
-        .node.offline { border-color: #ff0040; color: #ff0040; }
-        .node.online { border-color: #00ff88; color: #00ff88; }
+        .node.offline { border-color: #d32f2f; color: #d32f2f; }
+        .node.online { border-color: #4caf50; color: #4caf50; }
         
         .footer {
             position: absolute;
@@ -120,7 +89,7 @@
             left: 50%;
             transform: translateX(-50%);
             font-size: 0.8rem;
-            color: #666;
+            color: #888;
         }
         
         .blink {
@@ -134,8 +103,6 @@
     </style>
 </head>
 <body>
-    <div class="grid"></div>
-    
     <div class="container">
         <div class="error-code">404</div>
         
