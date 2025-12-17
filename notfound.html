@@ -2,11 +2,170 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>404 Not Found</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Node Unreachable | MeshNet v7.3</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap');
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+            color: #00ff88;
+            font-family: 'Orbitron', monospace;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .grid {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(0,255,136,0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0,255,136,0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: gridMove 20s linear infinite;
+        }
+        
+        @keyframes gridMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+        
+        .container {
+            position: relative;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .error-code {
+            font-size: 8rem;
+            font-weight: 900;
+            color: #ff0040;
+            text-shadow: 0 0 20px #ff0040, 0 0 40px #ff0040;
+            margin-bottom: 20px;
+            animation: glitch 2s infinite;
+        }
+        
+        @keyframes glitch {
+            0%, 90%, 100% { transform: translate(0); }
+            20% { transform: translate(-2px, 2px); }
+            40% { transform: translate(-2px, -2px); }
+            60% { transform: translate(2px, 2px); }
+            80% { transform: translate(2px, -2px); }
+        }
+        
+        .server-info {
+            background: rgba(0,0,0,0.8);
+            border: 2px solid #00ff88;
+            border-radius: 10px;
+            padding: 30px;
+            margin: 20px 0;
+            box-shadow: 0 0 30px rgba(0,255,136,0.3);
+        }
+        
+        .server-name {
+            font-size: 1.5rem;
+            color: #00ff88;
+            margin-bottom: 10px;
+        }
+        
+        .message {
+            font-size: 1.2rem;
+            margin: 15px 0;
+            color: #ffffff;
+        }
+        
+        .status {
+            font-family: monospace;
+            background: #000;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            border-left: 4px solid #ff0040;
+        }
+        
+        .mesh-status {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+        
+        .node {
+            background: rgba(0,255,136,0.1);
+            border: 1px solid #00ff88;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 5px;
+            font-size: 0.9rem;
+        }
+        
+        .node.offline { border-color: #ff0040; color: #ff0040; }
+        .node.online { border-color: #00ff88; color: #00ff88; }
+        
+        .footer {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.8rem;
+            color: #666;
+        }
+        
+        .blink {
+            animation: blink 1s infinite;
+        }
+        
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+    </style>
 </head>
 <body>
-
-
-
+    <div class="grid"></div>
+    
+    <div class="container">
+        <div class="error-code">404</div>
+        
+        <div class="server-info">
+            <div class="server-name">◉ MESHNET NODE: survivor-7a3f</div>
+            <div class="message">RESOURCE NOT FOUND IN DISTRIBUTED CACHE</div>
+            
+            <div class="status">
+                > SCANNING PEER NODES...<span class="blink">█</span><br>
+                > MESH INTEGRITY: 23% OPERATIONAL<br>
+                > LAST SYNC: 2050.03.15 14:27:33 UTC
+            </div>
+            
+            <div class="mesh-status">
+                <div class="node online">NODE-A7F2 ✓</div>
+                <div class="node offline">NODE-B8E1 ✗</div>
+                <div class="node online">NODE-C9D4 ✓</div>
+                <div class="node offline">NODE-D1A8 ✗</div>
+                <div class="node offline">NODE-E5F3 ✗</div>
+            </div>
+            
+            <div class="message">
+                The requested data fragment may exist on disconnected nodes.<br>
+                Try again when mesh connectivity improves.
+            </div>
+        </div>
+    </div>
+    
+    <div class="footer">
+        MeshNet Framework v7.3.2 | Open Source Survivor Network | Est. 2047
+    </div>
 </body>
 </html>
