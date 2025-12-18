@@ -94,12 +94,12 @@
         }
         
         .blink {
-            animation: blink 1s infinite;
+            animation: blink 2.0s infinite;
         }
         
         @keyframes blink {
-            0%, 50% { opacity: 1; }
-            51%, 100% { opacity: 0; }
+            0%, 20% { opacity: 1; }
+            70%, 100% { opacity: 0; transition-timing-function: ease-in-out; }
         }
     </style>
 </head>
@@ -115,7 +115,7 @@
                 <pre>
 > REQUESTED: <span id="filenamedetail">unknown</span>
 > Mesh integrity: 23% operational
-> Last sync: 2050.09.29 23:27:33 UTC
+> Last sync: 2050-09-29T23:27:33.000Z
 > File copies located: NODE-B8E1, NODE-E5F3
 > Retrieving file from: 'NODE-B8E1'...
 >   'NODE-B8E1': No connection available.
