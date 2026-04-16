@@ -26,9 +26,13 @@ h1,h2,h3 { margin: 0px;}
 #controls h2 { margin-bottom: 0.5em; }
 #controls table { border-collapse: collapse; }
 #controls td { padding: 2px 6px; }
-#controls input { font-family: inherit; font-size: 0.9em; padding: 2px 4px; }
-#controls input[size="8"] { width: 6em; }
-#controls .char-row td { border-top: 1px solid #ddd; padding-top: 6px; }
+#controls input, #controls select { font-family: inherit; font-size: 0.9em; padding: 2px 4px; }
+.char-card { margin: 0.4em 0; padding: 0 0.5em; background: #fff; border-radius: 4px; }
+.char-card summary { cursor: pointer; padding: 0.4em 0; font-weight: bold; }
+.char-fields { display: flex; flex-wrap: wrap; gap: 0.3em 0.8em; padding: 0.3em 0 0.5em; }
+.char-fields label { display: flex; flex-direction: column; font-size: 0.8em; color: #666; }
+.char-fields input, .char-fields select { font-size: 1rem; }
+.char-examples { margin: 0.2em 0 0.4em; font-size: 0.85em; color: #555; }
 #highlight-bar { position: sticky; top: 0; z-index: 10; padding: 0.4em 1em; background: #f9f9f9; border-bottom: 2px solid #ccc; display: flex; gap: 0.4em; flex-wrap: wrap; align-items: center; }
 #highlight-bar button { font-family: inherit; font-size: 0.9em; padding: 0.2em 0.6em; border: 1px solid #aaa; border-radius: 4px; cursor: pointer; background: #fff; }
 #highlight-bar select { font-family: inherit; font-size: 0.9em; padding: 0.2em; }
@@ -907,33 +911,41 @@ h1,h2,h3 { margin: 0px;}
     {label:'ze/hir',s:'ze',o:'hir',a:'hir',p:'hirs',r:'hirself',v:'s'}
   ];
 
+  const pronounLabels = {n:'Name',s:'Subject',o:'Object',a:'Adjective',p:'Possessive',r:'Reflexive'};
+
+  function exampleSentences(c) {
+    var v = c.v === 'p' ? 'have' : 'has';
+    return '<i>' + capitalize(c.s) + ' ' + v + ' arrived. '
+      + 'I spoke to ' + c.o + '. '
+      + 'That is ' + c.a + ' seat. '
+      + 'It is ' + c.p + '. '
+      + capitalize(c.s) + ' did it ' + c.r + '.</i>';
+  }
+
   function buildControls() {
     let h = '<h2>Script Variables</h2><table>';
     for (const [k, v] of Object.entries(vars)) {
       h += '<tr><td><b>' + k + '</b></td><td><input data-var="' + k + '" value="' + v.replace(/"/g,'&quot;') + '"></td></tr>';
     }
-    h += '</table><h2>Characters</h2><table>';
-    h += '<tr><td></td>';
-    ["Name","Subject","Object","Adjective","Possessive","Reflexive","Verb"].forEach(function(l){h+='<td><small>'+l+'</small></td>'});
-    h += '<td><small>Preset</small></td>';
-    h += '</tr>';
+    h += '</table><h2>Characters</h2><div class="char-cards">';
     for (const [k, c] of Object.entries(chars)) {
-      h += '<tr class="char-row">';
-      h += '<td style="background-color:' + charColors[k] + '"><b>' + k + '</b></td>';
+      h += '<details class="char-card" style="border-left:4px solid ' + charColors[k] + '">';
+      h += '<summary>' + c.n + ' <small>(' + c.s + '/' + c.o + ')</small></summary>';
+      h += '<div class="char-fields">';
+      h += '<label>Preset <select data-preset="' + k + '"><option>Preset\u2026</option>';
+      presets.forEach(function(p) { h += '<option value="' + p.label + '">' + p.label + '</option>'; });
+      h += '</select></label>';
       ['n','s','o','a','p','r'].forEach(function(f) {
-        h += '<td><input size="8" data-char="' + k + '" data-field="' + f + '" value="' + c[f].replace(/"/g,'&quot;') + '">';
-        h += '</td>';
+        h += '<label>' + pronounLabels[f] + ' <input data-char="' + k + '" data-field="' + f + '" value="' + c[f].replace(/"/g,'&quot;') + '"></label>';
       });
-      h += '<td><select data-char="' + k + '" data-field="v">';
+      h += '<label>Verb <select data-char="' + k + '" data-field="v">';
       h += '<option value="s"' + (c.v==='s'?' selected':'') + '>singular</option>';
       h += '<option value="p"' + (c.v==='p'?' selected':'') + '>plural</option>';
-      h += '</select></td>';
-      h += '<td><select data-preset="' + k + '"><option>Preset\u2026</option>';
-      presets.forEach(function(p) { h += '<option value="' + p.label + '">' + p.label + '</option>'; });
-      h += '</select></td>';
-      h += '</tr>';
+      h += '</select></label>';
+      h += '</div><p class="char-examples" data-examples="' + k + '">' + exampleSentences(c) + '</p>';
+      h += '</details>';
     }
-    h += '</table>';
+    h += '</div>';
     controlsEl.innerHTML = h;
   }
 
@@ -973,6 +985,10 @@ h1,h2,h3 { margin: 0px;}
         btn.textContent = chars[k].n;
         btn.style.backgroundColor = highlight[k] ? color : '';
       }
+      var summary = controlsEl.querySelector('details.char-card [data-char="' + k + '"][data-field="n"]');
+      if (summary) summary.closest('details').querySelector('summary').innerHTML = chars[k].n + ' <small>(' + chars[k].s + '/' + chars[k].o + ')</small>';
+      var ex = controlsEl.querySelector('[data-examples="' + k + '"]');
+      if (ex) ex.innerHTML = exampleSentences(chars[k]);
     }
     // update label column width — size to longest word, not longest name
     var measure = document.getElementById('measure');
@@ -1021,7 +1037,13 @@ h1,h2,h3 { margin: 0px;}
       if (p) {
         var c = chars[el.dataset.preset];
         ['s','o','a','p','r','v'].forEach(function(f) { c[f] = p[f]; });
-        buildControls();
+        var card = el.closest('.char-card');
+        ['s','o','a','p','r'].forEach(function(f) {
+          var inp = card.querySelector('[data-field="' + f + '"]');
+          if (inp) inp.value = c[f];
+        });
+        var vSel = card.querySelector('[data-field="v"]');
+        if (vSel) vSel.value = c.v;
         render();
       }
     } else if (el.dataset.var) {
