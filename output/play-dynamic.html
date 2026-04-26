@@ -13,7 +13,7 @@ h1,h2,h3 { margin: 0px;}
 .act { margin: 1em; text-align: center; }
 .interval { margin: 1em; text-align: center; }
 .fin { margin: 1em; text-align: center; }
-.scene { margin: 1em 0; scroll-margin-top: 3em; }
+.scene { margin: 1em 0; scroll-margin-top: 20vh; }
 .label { font-weight:bold; text-align:right; }
 .number { text-align:right; color: darkgrey; }
 .speech { display: grid; grid-template-columns: 0.5em var(--label-width, 6em) 1fr; }
@@ -70,12 +70,8 @@ h1,h2,h3 { margin: 0px;}
   const directionColor = '#FFFFCC';
   const highlight = {};
   for (const k of Object.keys(chars)) highlight[k] = false;
-  var highlightDirections = false;
+  var highlightDirections = true;
   const template = `<div class="speech"><span style="grid-column:3"><h1>The End of the Summer</h1></span></div>
-<br>
-<br>
-<br>
-<br>
 <br>
 <br>
 <br>
@@ -85,7 +81,23 @@ h1,h2,h3 { margin: 0px;}
 <br>
 <div class="speech"><span style="grid-column:3">The action is in a front garden outside a farm cottage. There is a table and some mismatched seating. There is an exit  to the front path away from the house and down the valley. There is another exit towards the house, back garden and  farm.</span></div>
 <br>
-<div class="speech"><span style="grid-column:3"><h2>Characters</h2> <h3>Improvised</h3> {hn} ({hs}/{ho}) &mdash; eccentric offstage role outside the theatre before the play starts. <h3>Staged</h3> {an} ({as}/{ao}) &mdash; Tech&dash;savvy but socially anxious. Currently depressed, but capable of moments of profound enthusiasm. Queer. 30&ndash;40 years old. {bn} ({bs}/{bo}) &mdash; The leader of the group. Pragmatic, diligent, focussed on survival. Their responsibility weighs heavily on them. 30&ndash;50 years old. {cn} ({cs}/{co}) &mdash; Most terminally online (when it&apos;s available!), keen for social contact. 16&ndash;25 years old. {dn} ({ds}/{do}) &mdash; A core part of the group. Something of a survival expert. Experienced in off&dash;grid living. 30&ndash;60 years old. {en} ({es}/{eo}) &mdash; Appears briefly, non&dash;speaking role. Physically fit but age unimportant. <h3>Pre&dash;recorded.</h3> {fn} ({fs}/{fo}) &mdash; Radio host at nearby Point Hope {gn} ({gs}/{go}) &mdash; Scout at Point Hope</span></div>
+<div class="speech"><span style="grid-column:3"><h2>Characters</h2></span></div>
+<br>
+<div class="speech"><span style="grid-column:3"><h3>Improvised</h3> {hn} ({hs}/{ho}) &mdash; eccentric offstage role outside the theatre before the play starts.</span></div>
+<br>
+<div class="speech"><span style="grid-column:3"><h3>Staged</h3> {an} ({as}/{ao}) &mdash; Tech&dash;savvy but socially anxious. Currently depressed, but capable of moments of profound enthusiasm. Queer. 30&ndash;40 years old.</span></div>
+<br>
+<div class="speech"><span style="grid-column:3">{bn} ({bs}/{bo}) &mdash; The leader of the group. Pragmatic, diligent, focussed on survival. Their responsibility weighs heavily on them. 30&ndash;50 years old.</span></div>
+<br>
+<div class="speech"><span style="grid-column:3">{cn} ({cs}/{co}) &mdash; Most terminally online (when it&apos;s available!), keen for social contact. 16&ndash;25 years old.</span></div>
+<br>
+<div class="speech"><span style="grid-column:3">{dn} ({ds}/{do}) &mdash; A core part of the group. Something of a survival expert. Experienced in off&dash;grid living. 30&ndash;60 years old.</span></div>
+<br>
+<div class="speech"><span style="grid-column:3">{en} ({es}/{eo}) &mdash; Appears briefly, non&dash;speaking role. Physically fit but age unimportant. Can be doubled with {hn}.</span></div>
+<br>
+<div class="speech"><span style="grid-column:3"><h3>Pre&dash;recorded.</h3> {fn} ({fs}/{fo}) &mdash; Radio host at nearby Point Hope</span></div>
+<br>
+<div class="speech"><span style="grid-column:3">{gn} ({gs}/{go}) &mdash; Scout at Point Hope</span></div>
 <br>
 <div class="speech"><span style="grid-column:3">&copy; Copyright 2025&ndash;2026 Rachel K. Westmacott</span></div>
 <br>
@@ -409,7 +421,7 @@ h1,h2,h3 { margin: 0px;}
 <div class="speech"><span></span><span></span><span class="line char-a"><span class="brkt" style="font-size:0;background-color:#FFFFCC;color:#FFFFCC">[</span><span class="direction" style="background-color:#FFFFCC"><span class="direction-text">{bn} sees the half processed apples and sighs, picks them up and takes them inside.</span></span><span class="brkt" style="font-size:0;background-color:#FFFFCC;color:#FFFFCC">]</span></span></div>
 <br>
 <h2 class="act">Act 2</h2>
-<div class="speech"><h3 class="scene" style="grid-column:3">1. Sensors</h3></div>
+<div class="speech"><h3 class="scene" style="grid-column:3">10. Sensors</h3></div>
 <div class="speech stage-direction"><span style="grid-column:3"><span class="brkt" style="font-size:0;background-color:#FFFFCC;color:#FFFFCC">[</span><span class="direction" style="background-color:#FFFFCC"><span class="direction-text">Evening, 14th September {setting} &mdash; at the Farmhouse. It is hot and dry.</span></span><span class="brkt" style="font-size:0;background-color:#FFFFCC;color:#FFFFCC">]</span></span></div>
 <br>
 <div class="speech stage-direction"><span style="grid-column:3"><span class="brkt" style="font-size:0;background-color:#FFFFCC;color:#FFFFCC">[</span><span class="direction" style="background-color:#FFFFCC"><span class="direction-text">An old fashioned revolver sits on the crate by the farmhouse door.</span></span><span class="brkt" style="font-size:0;background-color:#FFFFCC;color:#FFFFCC">]</span></span></div>
@@ -436,7 +448,7 @@ h1,h2,h3 { margin: 0px;}
 <br>
 <div class="speech"><span class="number">253</span><span class="label char-a" data-char-key="a">{an}:&nbsp;</span><span class="line char-a">We can set up a cron job to poll for an internet connection, then ping the sensors if it&apos;s up. Post the results to the Mastodon server, and you&apos;ll pick it straight up on your phone. The hard bit will be... well, the sensors all store a bunch of history, so we&apos;ll need to stash the state locally so we remember our position in the event stream so it doesn&apos;t spam us with old events on restarts.</span></div>
 <br>
-<div class="speech"><h3 class="scene" style="grid-column:3">2. Seedlings</h3></div>
+<div class="speech"><h3 class="scene" style="grid-column:3">11. Seedlings</h3></div>
 <div class="speech stage-direction"><span style="grid-column:3"><span class="brkt" style="font-size:0;background-color:#FFFFCC;color:#FFFFCC">[</span><span class="direction" style="background-color:#FFFFCC"><span class="direction-text">{bn} looks confused.</span></span><span class="brkt" style="font-size:0;background-color:#FFFFCC;color:#FFFFCC">]</span></span></div>
 <div class="speech"><span class="number">254</span><span class="label char-b" data-char-key="b">{bn}:&nbsp;</span><span class="line char-b">Well that all sounds very...<span class="brkt" style="font-size:0;background-color:#FFFFCC;color:#FFFFCC">[</span><span class="direction" style="background-color:#FFFFCC"><span class="direction-text">Skeptically</span></span><span class="brkt" style="font-size:0;background-color:#FFFFCC;color:#FFFFCC">]</span> useful?</span></div>
 <div class="speech"><span class="number">255</span><span class="label char-a" data-char-key="a">{an}:&nbsp;</span><span class="line char-a">I think it might be useful to know what&apos;s going on down in the valley, actually.</span></div>
@@ -488,7 +500,7 @@ h1,h2,h3 { margin: 0px;}
 <div class="speech"><span class="number">298</span><span class="label char-a" data-char-key="a">{an}:&nbsp;</span><span class="line char-a">Oh, yeah, for sure, you can dream... <span class="brkt" style="font-size:0;background-color:#FFFFCC;color:#FFFFCC">[</span><span class="direction" style="background-color:#FFFFCC"><span class="direction-text">{cn} sighs. Silence for a moment</span></span><span class="brkt" style="font-size:0;background-color:#FFFFCC;color:#FFFFCC">]</span></span></div>
 <div class="speech"><span class="number">299</span><span class="label char-c" data-char-key="c">{cn}:&nbsp;</span><span class="line char-c">Hey, do you think {fn}&apos;s updated {fa} message? Maybe {dn}&apos;s arrived but not got online yet.</span></div>
 <br>
-<div class="speech"><h3 class="scene" style="grid-column:3">3. Warehouses</h3></div>
+<div class="speech"><h3 class="scene" style="grid-column:3">12. Warehouses</h3></div>
 <div class="speech stage-direction"><span style="grid-column:3"><span class="brkt" style="font-size:0;background-color:#FFFFCC;color:#FFFFCC">[</span><span class="direction" style="background-color:#FFFFCC"><span class="direction-text">{cn} gets up and turns the radio on, fiddles with the tuning a bit.</span></span><span class="brkt" style="font-size:0;background-color:#FFFFCC;color:#FFFFCC">]</span></span></div>
 <br>
 <div class="speech"><span class="number">300</span><span class="label char-f" data-char-key="f">{fn}:&nbsp;</span><span class="line char-f"><span class="brkt" style="font-size:0;background-color:#FFFFCC;color:#FFFFCC">[</span><span class="direction" style="background-color:#FFFFCC"><span class="direction-text">Sounding tired and resigned to {fa} fate.</span></span><span class="brkt" style="font-size:0;background-color:#FFFFCC;color:#FFFFCC">]</span> ...I&apos;ll just re&dash;iterate that we are currently without access to the internet, so if any community nearby is able to spare a satellite terminal, we would be extremely grateful and have food and other supplies we&apos;d be willing to trade.</span></div>
@@ -529,7 +541,7 @@ h1,h2,h3 { margin: 0px;}
 <br>
 <div class="speech"><span class="number">321</span><span class="label char-c" data-char-key="c">{cn}:&nbsp;</span><span class="line char-c"><span class="brkt" style="font-size:0;background-color:#FFFFCC;color:#FFFFCC">[</span><span class="direction" style="background-color:#FFFFCC"><span class="direction-text">Getting up to turn the radio off.</span></span><span class="brkt" style="font-size:0;background-color:#FFFFCC;color:#FFFFCC">]</span> We&apos;ve heard this one before.</span></div>
 <br>
-<div class="speech"><h3 class="scene" style="grid-column:3">4. A Play</h3></div>
+<div class="speech"><h3 class="scene" style="grid-column:3">13. A Play</h3></div>
 <div class="speech"><span class="number">322</span><span class="label char-c" data-char-key="c">{cn}:&nbsp;</span><span class="line char-c">So, tell me about this play you want to do.</span></div>
 <div class="speech"><span class="number">323</span><span class="label char-a" data-char-key="a">{an}:&nbsp;</span><span class="line char-a">What do you want to know?</span></div>
 <div class="speech"><span class="number">324</span><span class="label char-c" data-char-key="c">{cn}:&nbsp;</span><span class="line char-c">Well, why do you want to do one?</span></div>
@@ -587,7 +599,7 @@ h1,h2,h3 { margin: 0px;}
 <div class="speech"><span class="number">371</span><span class="label char-a" data-char-key="a">{an}:&nbsp;</span><span class="line char-a">{bn}? <span class="brkt" style="font-size:0;background-color:#FFFFCC;color:#FFFFCC">[</span><span class="direction" style="background-color:#FFFFCC"><span class="direction-text">Without looking, {bn} raises a hand to silence {an}.</span></span><span class="brkt" style="font-size:0;background-color:#FFFFCC;color:#FFFFCC">]</span></span></div>
 <div class="speech"><span class="number">372</span><span class="label char-a" data-char-key="a">{an}:&nbsp;</span><span class="line char-a"><span class="brkt" style="font-size:0;background-color:#FFFFCC;color:#FFFFCC">[</span><span class="direction" style="background-color:#FFFFCC"><span class="direction-text">Quietly to {ar}.</span></span><span class="brkt" style="font-size:0;background-color:#FFFFCC;color:#FFFFCC">]</span> Ooookay then... <span class="brkt" style="font-size:0;background-color:#FFFFCC;color:#FFFFCC">[</span><span class="direction" style="background-color:#FFFFCC"><span class="direction-text">Beat</span></span><span class="brkt" style="font-size:0;background-color:#FFFFCC;color:#FFFFCC">]</span></span></div>
 <br>
-<div class="speech"><h3 class="scene" style="grid-column:3">5. Vegetables</h3></div>
+<div class="speech"><h3 class="scene" style="grid-column:3">14. Vegetables</h3></div>
 <div class="speech"><span class="number">373</span><span class="label char-c" data-char-key="c">{cn}:&nbsp;</span><span class="line char-c">Are you okay {bn}?</span></div>
 <div class="speech"><span class="number">374</span><span class="label char-b" data-char-key="b">{bn}:&nbsp;</span><span class="line char-b">Yes! I&apos;ve got to be. <span class="brkt" style="font-size:0;background-color:#FFFFCC;color:#FFFFCC">[</span><span class="direction" style="background-color:#FFFFCC"><span class="direction-text">Pulling themselves together and standing.</span></span><span class="brkt" style="font-size:0;background-color:#FFFFCC;color:#FFFFCC">]</span> You do too. Come on, there&apos;s weeding to do.</span></div>
 <div class="speech"><span class="number">375</span><span class="label char-a" data-char-key="a">{an}:&nbsp;</span><span class="line char-a">What?</span></div>
@@ -645,7 +657,7 @@ h1,h2,h3 { margin: 0px;}
 <div class="speech"><span class="number">424</span><span class="label char-c" data-char-key="c">{cn}:&nbsp;</span><span class="line char-c">It&apos;s nice that you still want {ao} here.</span></div>
 <div class="speech"><span class="number">425</span><span class="label char-b" data-char-key="b">{bn}:&nbsp;</span><span class="line char-b">Yeah, I do. Or maybe I just don&apos;t want to admit that {as}&apos;d rather not be here, with me.</span></div>
 <br>
-<div class="speech"><h3 class="scene" style="grid-column:3">6. A change of heart</h3></div>
+<div class="speech"><h3 class="scene" style="grid-column:3">15. A change of heart</h3></div>
 <div class="speech stage-direction"><span style="grid-column:3"><span class="brkt" style="font-size:0;background-color:#FFFFCC;color:#FFFFCC">[</span><span class="direction" style="background-color:#FFFFCC"><span class="direction-text">Enter {an}</span></span><span class="brkt" style="font-size:0;background-color:#FFFFCC;color:#FFFFCC">]</span></span></div>
 <br>
 <div class="speech stage-direction"><span style="grid-column:3"><span class="brkt" style="font-size:0;background-color:#FFFFCC;color:#FFFFCC">[</span><span class="direction" style="background-color:#FFFFCC"><span class="direction-text">A beat passes then they speak simultaneously.</span></span><span class="brkt" style="font-size:0;background-color:#FFFFCC;color:#FFFFCC">]</span></span></div>
@@ -708,7 +720,7 @@ h1,h2,h3 { margin: 0px;}
 <br>
 <div class="speech"><span></span><span></span><span class="line char-c"><span class="brkt" style="font-size:0;background-color:#FFFFCC;color:#FFFFCC">[</span><span class="direction" style="background-color:#FFFFCC"><span class="direction-text">Exit {cn}</span></span><span class="brkt" style="font-size:0;background-color:#FFFFCC;color:#FFFFCC">]</span></span></div>
 <br>
-<div class="speech"><h3 class="scene" style="grid-column:3">7.  Making up</h3></div>
+<div class="speech"><h3 class="scene" style="grid-column:3">16.  Making up</h3></div>
 <div class="speech"><span class="number">477</span><span class="label char-a" data-char-key="a">{an}:&nbsp;</span><span class="line char-a">Thanks for the water.</span></div>
 <div class="speech"><span class="number">478</span><span class="label char-b" data-char-key="b">{bn}:&nbsp;</span><span class="line char-b">It&apos;s okay. {cn} and I had the same earlier. <span class="brkt" style="font-size:0;background-color:#FFFFCC;color:#FFFFCC">[</span><span class="direction" style="background-color:#FFFFCC"><span class="direction-text">Beat. As this conversation happens, {bn} &amp; {an} start to mimic each other&apos;s body language and inch closer together.</span></span><span class="brkt" style="font-size:0;background-color:#FFFFCC;color:#FFFFCC">]</span> Look, I&apos;m sorry. I should have talked to you sooner. I felt bad that you were unhappy and I should have dealt with it head on.</span></div>
 <div class="speech"><span class="number">479</span><span class="label char-a" data-char-key="a">{an}:&nbsp;</span><span class="line char-a">Thank you for listening.</span></div>
@@ -724,7 +736,7 @@ h1,h2,h3 { margin: 0px;}
 <div class="speech"><span class="number">489</span><span class="label char-a" data-char-key="a">{an}:&nbsp;</span><span class="line char-a"><span class="brkt" style="font-size:0;background-color:#FFFFCC;color:#FFFFCC">[</span><span class="direction" style="background-color:#FFFFCC"><span class="direction-text">Beat, then looking coy.</span></span><span class="brkt" style="font-size:0;background-color:#FFFFCC;color:#FFFFCC">]</span> What else did you like about me?</span></div>
 <div class="speech"><span class="number">490</span><span class="label char-b" data-char-key="b">{bn}:&nbsp;</span><span class="line char-b">You&apos;re exactly the kind of person my mother would have disapproved of.</span></div>
 <br>
-<div class="speech"><h3 class="scene" style="grid-column:3">8. A song</h3></div>
+<div class="speech"><h3 class="scene" style="grid-column:3">17. A song</h3></div>
 <div class="speech stage-direction"><span style="grid-column:3"><span class="brkt" style="font-size:0;background-color:#FFFFCC;color:#FFFFCC">[</span><span class="direction" style="background-color:#FFFFCC"><span class="direction-text">Enter {cn}</span></span><span class="brkt" style="font-size:0;background-color:#FFFFCC;color:#FFFFCC">]</span></span></div>
 <br>
 <div class="speech stage-direction"><span style="grid-column:3"><span class="brkt" style="font-size:0;background-color:#FFFFCC;color:#FFFFCC">[</span><span class="direction" style="background-color:#FFFFCC"><span class="direction-text">{an} leaps back as they hear {cn} returning with the guitar and a notebook. {cn} looks at them. Silence.</span></span><span class="brkt" style="font-size:0;background-color:#FFFFCC;color:#FFFFCC">]</span></span></div>
@@ -757,7 +769,7 @@ h1,h2,h3 { margin: 0px;}
 <br>
 <h2 class="act">Act 3</h2>
 <br>
-<div class="speech"><h3 class="scene" style="grid-column:3">1.  Luck runs out</h3></div>
+<div class="speech"><h3 class="scene" style="grid-column:3">18.  Luck runs out</h3></div>
 <br>
 <div class="speech stage-direction"><span style="grid-column:3"><span class="brkt" style="font-size:0;background-color:#FFFFCC;color:#FFFFCC">[</span><span class="direction" style="background-color:#FFFFCC"><span class="direction-text">Midday, 16th September {setting} — at the Farmhouse. It is hot and dry. A shovel leans against the crate by the front door to the farmhouse.</span></span><span class="brkt" style="font-size:0;background-color:#FFFFCC;color:#FFFFCC">]</span></span></div>
 <br>
@@ -795,7 +807,7 @@ h1,h2,h3 { margin: 0px;}
 <br>
 <div class="speech"><span></span><span></span><span class="line char-f">I think that about wraps it up for today&apos;s update, so I&apos;ll leave you with this... <span class="brkt" style="font-size:0;background-color:#FFFFCC;color:#FFFFCC">[</span><span class="direction" style="background-color:#FFFFCC"><span class="direction-text">Music plays.</span></span><span class="brkt" style="font-size:0;background-color:#FFFFCC;color:#FFFFCC">]</span></span></div>
 <br>
-<div class="speech"><h3 class="scene" style="grid-column:3">2. Beep, beep!</h3></div>
+<div class="speech"><h3 class="scene" style="grid-column:3">19. Beep, beep!</h3></div>
 <br>
 <div class="speech stage-direction"><span style="grid-column:3"><span class="brkt" style="font-size:0;background-color:#FFFFCC;color:#FFFFCC">[</span><span class="direction" style="background-color:#FFFFCC"><span class="direction-text">Lights come up on the dead bodies.</span></span><span class="brkt" style="font-size:0;background-color:#FFFFCC;color:#FFFFCC">]</span></span></div>
 <br>
@@ -810,7 +822,7 @@ h1,h2,h3 { margin: 0px;}
 <br>
 <div class="speech stage-direction"><span style="grid-column:3"><span class="brkt" style="font-size:0;background-color:#FFFFCC;color:#FFFFCC">[</span><span class="direction" style="background-color:#FFFFCC"><span class="direction-text">Lights go down.</span></span><span class="brkt" style="font-size:0;background-color:#FFFFCC;color:#FFFFCC">]</span></span></div>
 <br>
-<div class="speech"><h3 class="scene" style="grid-column:3">3. Burial</h3></div>
+<div class="speech"><h3 class="scene" style="grid-column:3">20. Burial</h3></div>
 <br>
 <div class="speech stage-direction"><span style="grid-column:3"><span class="brkt" style="font-size:0;background-color:#FFFFCC;color:#FFFFCC">[</span><span class="direction" style="background-color:#FFFFCC"><span class="direction-text">19th September {setting}</span></span><span class="brkt" style="font-size:0;background-color:#FFFFCC;color:#FFFFCC">]</span></span></div>
 <br>
@@ -824,7 +836,7 @@ h1,h2,h3 { margin: 0px;}
 <br>
 <div class="speech stage-direction"><span style="grid-column:3"><span class="brkt" style="font-size:0;background-color:#FFFFCC;color:#FFFFCC">[</span><span class="direction" style="background-color:#FFFFCC"><span class="direction-text">{dn} rises and finds the shovel by the crate. {dS} {dv:looks|look} for a moment at the bodies then {dv:carries|carry} the shovel offstage. {dS} {dv:returns|return} and {dv:begins|begin} to drag {bn}&apos;s body offstage. Lights down.</span></span><span class="brkt" style="font-size:0;background-color:#FFFFCC;color:#FFFFCC">]</span></span></div>
 <br>
-<div class="speech"><h3 class="scene" style="grid-column:3">4. What now?</h3></div>
+<div class="speech"><h3 class="scene" style="grid-column:3">21. What now?</h3></div>
 <div class="speech stage-direction"><span style="grid-column:3"><span class="brkt" style="font-size:0;background-color:#FFFFCC;color:#FFFFCC">[</span><span class="direction" style="background-color:#FFFFCC"><span class="direction-text">20th September {setting}</span></span><span class="brkt" style="font-size:0;background-color:#FFFFCC;color:#FFFFCC">]</span></span></div>
 <br>
 <div class="speech stage-direction"><span style="grid-column:3"><span class="brkt" style="font-size:0;background-color:#FFFFCC;color:#FFFFCC">[</span><span class="direction" style="background-color:#FFFFCC"><span class="direction-text">Lights up. The bodies are gone. {dn} comes on stage with a backpack, like at the start of the play. {dS} hardly {dv:limps|limp}. {dS} {dv:stands|stand} on the cusp of leaving. {dS} {dv:turns|turn} back to look at the farm. {dS} {dv:collapses|collapse} to the ground, clearly emotional. After a moment {ds} {dv:gets|get} back up, {dv:walks|walk} to a seat, {dv:removes|remove} the backpack and {dv:sits|sit} down.</span></span><span class="brkt" style="font-size:0;background-color:#FFFFCC;color:#FFFFCC">]</span></span></div>
@@ -835,7 +847,7 @@ h1,h2,h3 { margin: 0px;}
 <br>
 <div class="speech stage-direction"><span style="grid-column:3"><span class="brkt" style="font-size:0;background-color:#FFFFCC;color:#FFFFCC">[</span><span class="direction" style="background-color:#FFFFCC"><span class="direction-text">Lights down.</span></span><span class="brkt" style="font-size:0;background-color:#FFFFCC;color:#FFFFCC">]</span></span></div>
 <br>
-<div class="speech"><h3 class="scene" style="grid-column:3">5. Chekhov&apos;s Gun</h3></div>
+<div class="speech"><h3 class="scene" style="grid-column:3">22. Chekhov&apos;s Gun</h3></div>
 <div class="speech stage-direction"><span style="grid-column:3"><span class="brkt" style="font-size:0;background-color:#FFFFCC;color:#FFFFCC">[</span><span class="direction" style="background-color:#FFFFCC"><span class="direction-text">Lights up. Radio plays, as {dn} sits playing games in the deckchair, now surrounded by some detritus (empty cans, food packets, etc.).</span></span><span class="brkt" style="font-size:0;background-color:#FFFFCC;color:#FFFFCC">]</span></span></div>
 <br>
 <div class="speech stage-direction"><span style="grid-column:3"><span class="brkt" style="font-size:0;background-color:#FFFFCC;color:#FFFFCC">[</span><span class="direction" style="background-color:#FFFFCC"><span class="direction-text">The radio sits front and center, within easy reach of the audience.</span></span><span class="brkt" style="font-size:0;background-color:#FFFFCC;color:#FFFFCC">]</span></span></div>
@@ -866,7 +878,7 @@ h1,h2,h3 { margin: 0px;}
 <br>
 <div class="speech"><span></span><span></span><span class="line char-f"><span class="brkt" style="font-size:0;background-color:#FFFFCC;color:#FFFFCC">[</span><span class="direction" style="background-color:#FFFFCC"><span class="direction-text">Silence for a moment. Lights go down</span></span><span class="brkt" style="font-size:0;background-color:#FFFFCC;color:#FFFFCC">]</span></span></div>
 <br>
-<div class="speech"><h3 class="scene" style="grid-column:3">6. A bigger story.</h3></div>
+<div class="speech"><h3 class="scene" style="grid-column:3">23. A bigger story.</h3></div>
 <br>
 <div class="speech stage-direction"><span style="grid-column:3"><span class="brkt" style="font-size:0;background-color:#FFFFCC;color:#FFFFCC">[</span><span class="direction" style="background-color:#FFFFCC"><span class="direction-text">Some time later...</span></span><span class="brkt" style="font-size:0;background-color:#FFFFCC;color:#FFFFCC">]</span></span></div>
 <br>
@@ -890,7 +902,7 @@ h1,h2,h3 { margin: 0px;}
 <br>
 <div class="speech"><span></span><span></span><span class="line char-f">Maybe we could frame it a different way. Maybe we could fight together for the world that we want. Even now, it might not be too late to change course.</span></div>
 <br>
-<div class="speech"><h3 class="scene" style="grid-column:3">7. The End</h3></div>
+<div class="speech"><h3 class="scene" style="grid-column:3">24. The End</h3></div>
 <br>
 <div class="speech"><span class="number">515</span><span class="label char-f" data-char-key="f">{fn}:&nbsp;</span><span class="line char-f">Even as you sit here, wondering what you&apos;re watching. It&apos;s not a play anymore. It&apos;s just a corpse listening to a radio. You paid to see a play. Perhaps a friend dragged you along. Maybe your partner got you a ticket. &quot;Come to the theatre!&quot; they said, &quot;It&apos;ll be fun!&quot;, they said. And here you are sitting in silence, listening to me droning on about an ongoing disaster that no one is doing enough to fix.</span></div>
 <br>
