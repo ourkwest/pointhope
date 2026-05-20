@@ -38,6 +38,7 @@ h1,h2,h3 { margin: 0px;}
 #highlight-bar select { font-family: inherit; font-size: 0.9em; padding: 0.2em; }
 .hide-directions .direction { background-color: transparent !important; }
 .hide-directions .brkt { background-color: transparent !important; color: transparent !important; }
+@media print { #controls, #highlight-bar { display: none; } body { margin: 1cm; } #content { margin: 0; } .act { page-break-before: always; } .scene { scroll-margin-top: 0; } }
 </style>
 </head>
 <body>
@@ -420,7 +421,7 @@ h1,h2,h3 { margin: 0px;}
 <br>
 <div class="speech"><span></span><span></span><span class="line char-a"><span class="brkt" style="font-size:0;background-color:#FFFFCC;color:#FFFFCC">[</span><span class="direction" style="background-color:#FFFFCC"><span class="direction-text">{cn} &amp; {an} exit.</span></span><span class="brkt" style="font-size:0;background-color:#FFFFCC;color:#FFFFCC">]</span></span></div>
 <br>
-<div class="speech"><span></span><span></span><span class="line char-a"><span class="brkt" style="font-size:0;background-color:#FFFFCC;color:#FFFFCC">[</span><span class="direction" style="background-color:#FFFFCC"><span class="direction-text">{bn} sees the half processed apples and sighs, picks them up and takes them inside.</span></span><span class="brkt" style="font-size:0;background-color:#FFFFCC;color:#FFFFCC">]</span></span></div>
+<div class="speech"><span></span><span></span><span class="line char-a"><span class="brkt" style="font-size:0;background-color:#FFFFCC;color:#FFFFCC">[</span><span class="direction" style="background-color:#FFFFCC"><span class="direction-text">{bn} sees the half&dash;processed apples and sighs, picks them up and takes them inside.</span></span><span class="brkt" style="font-size:0;background-color:#FFFFCC;color:#FFFFCC">]</span></span></div>
 <br>
 <h2 class="act">Act 2</h2>
 <div class="speech"><h3 class="scene" style="grid-column:3">10. Sensors</h3></div>
@@ -706,7 +707,7 @@ h1,h2,h3 { margin: 0px;}
 <div class="speech"><span class="number">461</span><span class="label char-c" data-char-key="c">{cn}:&nbsp;</span><span class="line char-c">Chekhov?</span></div>
 <div class="speech"><span class="number">462</span><span class="label char-b" data-char-key="b">{bn}:&nbsp;</span><span class="line char-b">Yes! That was it.</span></div>
 <br>
-<div class="speech"><h3 class="scene" style="grid-column:3">16.  An intruder</h3></div>
+<div class="speech"><h3 class="scene" style="grid-column:3">16.  Meat guy</h3></div>
 <br>
 <div class="speech"><span class="number">463</span><span class="label char-c" data-char-key="c">{cn}:&nbsp;</span><span class="line char-c">We have Chekhov&apos;s gun? <span class="brkt" style="font-size:0;background-color:#FFFFCC;color:#FFFFCC">[</span><span class="direction" style="background-color:#FFFFCC"><span class="direction-text">Possible glance at audience.</span></span><span class="brkt" style="font-size:0;background-color:#FFFFCC;color:#FFFFCC">]</span></span></div>
 <div class="speech"><span class="number">464</span><span class="label char-b" data-char-key="b">{bn}:&nbsp;</span><span class="line char-b">Yeah. It&apos;s a right pain to load though. The shotgun was so much better when we still had shells for it. Looked more intimidating to intruders as well, plus you didn&apos;t have to be so accurate.</span></div>
@@ -740,16 +741,16 @@ h1,h2,h3 { margin: 0px;}
 <div class="speech"><span class="number">484</span><span class="label char-c" data-char-key="c">{cn}:&nbsp;</span><span class="line char-c">Er… Pork! Yes, pork. What do you say? You&apos;ll feel better with some tasty, er… pork chops in your belly. Do you have fire? I can cook you some now. What do you say? We sit down together and have a nice meal of, er, pork together. What do you say? Eh? Nice bowl of pork?</span></div>
 <div class="speech"><span class="number">485</span><span class="label char-b" data-char-key="b">{bn}:&nbsp;</span><span class="line char-b">It smells pretty old.</span></div>
 <div class="speech"><span class="number">486</span><span class="label char-c" data-char-key="c">{cn}:&nbsp;</span><span class="line char-c">So we cook it well, is your kitchen in there? <span class="brkt" style="font-size:0;background-color:#FFFFCC;color:#FFFFCC">[</span><span class="direction" style="background-color:#FFFFCC"><span class="direction-text">Pointing towards the farmhouse.</span></span><span class="brkt" style="font-size:0;background-color:#FFFFCC;color:#FFFFCC">]</span></span></div>
-<div class="speech"><span class="number">487</span><span class="label char-b" data-char-key="b">{bn}:&nbsp;</span><span class="line char-b">Hang on, is that a tattoo on that bit?</span></div>
-<div class="speech"><span class="number">488</span><span class="label char-c" data-char-key="c">{cn}:&nbsp;</span><span class="line char-c">Oh don&apos;t mind that. People do funny things to pigs these days. Do you have enough solar to run an oven?</span></div>
-<div class="speech"><span class="number">489</span><span class="label char-b" data-char-key="b">{bn}:&nbsp;</span><span class="line char-b">It is. It says &apos;Manchester United&apos; on it.</span></div>
-<div class="speech"><span class="number">490</span><span class="label char-c" data-char-key="c">{cn}:&nbsp;</span><span class="line char-c">So the farmer was a big fan, who cares, do you want the meat or not? I guarantee you it&apos;s the best pork you&apos;ve tasted in months. Come on, let&apos;s get it cooking!</span></div>
-<div class="speech"><span class="number">491</span><span class="label char-b" data-char-key="b">{bn}:&nbsp;</span><span class="line char-b">Look, no&dash;one&apos;s still farming pigs round here. We don&apos;t want your meat, thank you. So if you have nothing else to offer us then please leave the property.</span></div>
-<div class="speech"><span class="number">492</span><span class="label char-c" data-char-key="c">{cn}:&nbsp;</span><span class="line char-c">But I have meat? When did you last eat meat? You have a kitchen, we can help each other.</span></div>
+<div class="speech"><span class="number">487</span><span class="label char-b" data-char-key="b">{bn}:&nbsp;</span><span class="line char-b">Hang on, is that a tattoo / on that bit?</span></div>
+<div class="speech"><span class="number">488</span><span class="label char-c" data-char-key="c">{cn}:&nbsp;</span><span class="line char-c">Oh don&apos;t mind that. People do funny things to pigs these days. Do you have enough solar / to run an oven?</span></div>
+<div class="speech"><span class="number">489</span><span class="label char-b" data-char-key="b">{bn}:&nbsp;</span><span class="line char-b">It is. It says &apos;Manchester United&apos; / on it.</span></div>
+<div class="speech"><span class="number">490</span><span class="label char-c" data-char-key="c">{cn}:&nbsp;</span><span class="line char-c">So the farmer was a big fan, who cares, do you want the meat or not? I guarantee you the best pork you&apos;ve tasted in months. Come on, let&apos;s get it / cooking!</span></div>
+<div class="speech"><span class="number">491</span><span class="label char-b" data-char-key="b">{bn}:&nbsp;</span><span class="line char-b">Look, no&dash;one&apos;s still farming pigs round here. We don&apos;t want your meat, thank you. Please leave / the property.</span></div>
+<div class="speech"><span class="number">492</span><span class="label char-c" data-char-key="c">{cn}:&nbsp;</span><span class="line char-c">But I have meat? When did you last eat meat? You have a kitchen, we can help each / other.</span></div>
 <div class="speech"><span class="number">493</span><span class="label char-b" data-char-key="b">{bn}:&nbsp;</span><span class="line char-b">We don&apos;t need your help.</span></div>
 <div class="speech"><span class="number">494</span><span class="label char-c" data-char-key="c">{cn}:&nbsp;</span><span class="line char-c"><span class="brkt" style="font-size:0;background-color:#FFFFCC;color:#FFFFCC">[</span><span class="direction" style="background-color:#FFFFCC"><span class="direction-text">Madly gesturing.</span></span><span class="brkt" style="font-size:0;background-color:#FFFFCC;color:#FFFFCC">]</span> I have other things in the van: Beef! / Ice cream! A hot tub!</span></div>
 <div class="speech"><span class="number">495</span><span class="label char-b" data-char-key="b">{bn}:&nbsp;</span><span class="line char-b">Van? There&apos;s no van here.</span></div>
-<div class="speech"><span class="number">496</span><span class="label char-c" data-char-key="c">{cn}:&nbsp;</span><span class="line char-c">It&apos;s just / behind the bush.</span></div>
+<div class="speech"><span class="number">496</span><span class="label char-c" data-char-key="c">{cn}:&nbsp;</span><span class="line char-c">It&apos;s just behind / the bush.</span></div>
 <div class="speech"><span class="number">497</span><span class="label char-b" data-char-key="b">{bn}:&nbsp;</span><span class="line char-b">Look, I&apos;ve asked you to leave. Don&apos;t make me ask again. <span class="brkt" style="font-size:0;background-color:#FFFFCC;color:#FFFFCC">[</span><span class="direction" style="background-color:#FFFFCC"><span class="direction-text">Starting to raise the &apos;shotgun&apos;.</span></span><span class="brkt" style="font-size:0;background-color:#FFFFCC;color:#FFFFCC">]</span></span></div>
 <div class="speech"><span class="number">498</span><span class="label char-c" data-char-key="c">{cn}:&nbsp;</span><span class="line char-c">Okay. <span class="brkt" style="font-size:0;background-color:#FFFFCC;color:#FFFFCC">[</span><span class="direction" style="background-color:#FFFFCC"><span class="direction-text">Really over&dash;emphasising:</span></span><span class="brkt" style="font-size:0;background-color:#FFFFCC;color:#FFFFCC">]</span> Your loss...</span></div>
 <br>
@@ -985,11 +986,11 @@ h1,h2,h3 { margin: 0px;}
 <br>
 <div class="speech stage-direction"><span style="grid-column:3"><span class="brkt" style="font-size:0;background-color:#FFFFCC;color:#FFFFCC">[</span><span class="direction" style="background-color:#FFFFCC"><span class="direction-text">19th September {setting} &mdash; at the Farmhouse. It is hot and dry.</span></span><span class="brkt" style="font-size:0;background-color:#FFFFCC;color:#FFFFCC">]</span></span></div>
 <br>
-<div class="speech stage-direction"><span style="grid-column:3"><span class="brkt" style="font-size:0;background-color:#FFFFCC;color:#FFFFCC">[</span><span class="direction" style="background-color:#FFFFCC"><span class="direction-text">Lights come up. {dn} enters alone with a gunshot wound to the leg. {dS} {dv:is|are} shocked at what {ds} {dv:sees|see}, but perhaps {dv:was|were} half expecting it. {dS} {dv:goes|go} over to {bn} and check that {bs} {bv:is|are} definitely dead. Then {ds} {dv:checks|check} {an} and {cn}.</span></span><span class="brkt" style="font-size:0;background-color:#FFFFCC;color:#FFFFCC">]</span></span></div>
+<div class="speech stage-direction"><span style="grid-column:3"><span class="brkt" style="font-size:0;background-color:#FFFFCC;color:#FFFFCC">[</span><span class="direction" style="background-color:#FFFFCC"><span class="direction-text">Lights come up. {dn} enters alone with a gunshot wound to the leg. {dS} {dv:is|are} shocked at what {ds} {dv:sees|see}, but perhaps {dv:was|were} half&dash;expecting it. {dS} {dv:goes|go} over to {bn} and check that {bs} {bv:is|are} definitely dead. Then {ds} {dv:checks|check} {an} and {cn}.</span></span><span class="brkt" style="font-size:0;background-color:#FFFFCC;color:#FFFFCC">]</span></span></div>
 <br>
 <div class="speech stage-direction"><span style="grid-column:3"><span class="brkt" style="font-size:0;background-color:#FFFFCC;color:#FFFFCC">[</span><span class="direction" style="background-color:#FFFFCC"><span class="direction-text">{dn} sits for a moment in despair.</span></span><span class="brkt" style="font-size:0;background-color:#FFFFCC;color:#FFFFCC">]</span></span></div>
 <br>
-<div class="speech stage-direction"><span style="grid-column:3"><span class="brkt" style="font-size:0;background-color:#FFFFCC;color:#FFFFCC">[</span><span class="direction" style="background-color:#FFFFCC"><span class="direction-text">{dn} rises and limps off to the house, returning a moment later with bandages and water. {dS} {dv:removes|remove} the bloody strip of cloth tied around {da} leg, {dv:cleans|clean} around the wound and then {dv:dresses|dress} it with fresh bandages.</span></span><span class="brkt" style="font-size:0;background-color:#FFFFCC;color:#FFFFCC">]</span></span></div>
+<div class="speech stage-direction"><span style="grid-column:3"><span class="brkt" style="font-size:0;background-color:#FFFFCC;color:#FFFFCC">[</span><span class="direction" style="background-color:#FFFFCC"><span class="direction-text">{dn} rises and limps off to the house, returning a moment later with bandages, alcohol and water. {dS} {dv:removes|remove} the bloody strip of cloth tied around {da} leg, {dv:cleans|clean} around the wound, disinfects it with the alcohol and then {dv:dresses|dress} it with fresh bandages.</span></span><span class="brkt" style="font-size:0;background-color:#FFFFCC;color:#FFFFCC">]</span></span></div>
 <br>
 <div class="speech stage-direction"><span style="grid-column:3"><span class="brkt" style="font-size:0;background-color:#FFFFCC;color:#FFFFCC">[</span><span class="direction" style="background-color:#FFFFCC"><span class="direction-text">{dn} sits for a moment in despair.</span></span><span class="brkt" style="font-size:0;background-color:#FFFFCC;color:#FFFFCC">]</span></span></div>
 <br>
@@ -1289,6 +1290,6 @@ h1,h2,h3 { margin: 0px;}
   });
 })();
 </script>
-<footer style="text-align:center;color:#999;font-size:0.75em;padding:1em">Built: 2026-05-16T20:05:16Z</footer>
+<footer style="text-align:center;color:#999;font-size:0.75em;padding:1em">Built: 2026-05-17T20:44:51Z</footer>
 </body>
 </html>
