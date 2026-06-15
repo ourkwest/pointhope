@@ -69,6 +69,14 @@ h1,h2,h3 { margin: 0px;}
     "g": "#DCF7D3",
     "h": "#D5D3F7"};
   const directionColor = '#FFFFCC';
+  const charStats = {    "a": "187 lines, 4170 words",
+    "b": "175 lines, 3861 words",
+    "c": "208 lines, 2806 words",
+    "d": "33 lines, 955 words",
+    "e": "0 lines, 0 words",
+    "f": "15 lines, 2378 words",
+    "g": "10 lines, 615 words",
+    "h": "0 lines, 0 words"};
   const highlight = {};
   for (const k of Object.keys(chars)) highlight[k] = false;
   var highlightDirections = true;
@@ -449,7 +457,7 @@ h1,h2,h3 { margin: 0px;}
 <br>
 <div class="speech"><span></span><span></span><span class="line char-a"><span class="brkt" style="font-size:0;background-color:#FFFFCC;color:#FFFFCC">[</span><span class="direction" style="background-color:#FFFFCC"><span class="direction-text">{bn} enters with a tray of seedlings and a bucket of earth, unseen by {an}.</span></span><span class="brkt" style="font-size:0;background-color:#FFFFCC;color:#FFFFCC">]</span></span></div>
 <br>
-<div class="speech"><span class="number">253</span><span class="label char-a" data-char-key="a">{an}:&nbsp;</span><span class="line char-a">We can set up a cron job to poll for an internet connection, then ping the sensors if it&apos;s up. Post the results to the Mastodon server, and you&apos;ll pick it straight up on your phone. The hard bit will be... well, the sensors all store a bunch of history, so we&apos;ll need to stash the state locally so we remember our position in the event stream so it doesn&apos;t spam us with old events on restarts.</span></div>
+<div class="speech"><span class="number">253</span><span class="label char-a" data-char-key="a">{an}:&nbsp;</span><span class="line char-a">We can set up a cron job to poll for an internet connection, then ping the sensors if it&apos;s up. Post the results to the Mastodon server, and you&apos;ll pick it straight up on your phone. The hard bit will be... well, the sensor nodes all store a bunch of history, so we&apos;ll need to stash the state on the server so we remember our position in the event stream so it doesn&apos;t spam us with old events on restarts.</span></div>
 <br>
 <div class="speech"><h3 class="scene" style="grid-column:3">11. Seedlings</h3></div>
 <div class="speech stage-direction"><span style="grid-column:3"><span class="brkt" style="font-size:0;background-color:#FFFFCC;color:#FFFFCC">[</span><span class="direction" style="background-color:#FFFFCC"><span class="direction-text">{bn} looks confused.</span></span><span class="brkt" style="font-size:0;background-color:#FFFFCC;color:#FFFFCC">]</span></span></div>
@@ -656,7 +664,7 @@ h1,h2,h3 { margin: 0px;}
 <div class="speech"><span class="number">420</span><span class="label char-c" data-char-key="c">{cn}:&nbsp;</span><span class="line char-c">You want to stay, I want to stay, {dn} is coming back in four or five days, and {an} hasn&apos;t left yet.</span></div>
 <div class="speech"><span class="number">421</span><span class="label char-b" data-char-key="b">{bn}:&nbsp;</span><span class="line char-b">Perhaps I should have let {ao} go to Point Hope? {aS} did seem keen.</span></div>
 <div class="speech"><span class="number">422</span><span class="label char-c" data-char-key="c">{cn}:&nbsp;</span><span class="line char-c">You noticed that?</span></div>
-<div class="speech"><span class="number">423</span><span class="label char-b" data-char-key="b">{bn}:&nbsp;</span><span class="line char-b">Yeah, but I was worried they wouldn&apos;t come back.</span></div>
+<div class="speech"><span class="number">423</span><span class="label char-b" data-char-key="b">{bn}:&nbsp;</span><span class="line char-b">Yeah, but I was worried {as} wouldn&apos;t come back.</span></div>
 <div class="speech"><span class="number">424</span><span class="label char-c" data-char-key="c">{cn}:&nbsp;</span><span class="line char-c">It&apos;s nice that you still want {ao} here.</span></div>
 <div class="speech"><span class="number">425</span><span class="label char-b" data-char-key="b">{bn}:&nbsp;</span><span class="line char-b">Yeah, I do. Or maybe I just don&apos;t want to admit that {as}&apos;d rather not be here, with me.</span></div>
 <br>
@@ -1128,6 +1136,84 @@ h1,h2,h3 { margin: 0px;}
     {label:'ze/hir',s:'ze',o:'hir',a:'hir',p:'hirs',r:'hirself',v:'s'}
   ];
 
+  const defaultVars = JSON.parse(JSON.stringify(vars));
+  const defaultChars = JSON.parse(JSON.stringify(chars));
+
+  function findPreset(c) {
+    for (var i = 0; i < presets.length; i++) {
+      var p = presets[i];
+      if (c.s===p.s && c.o===p.o && c.a===p.a && c.p===p.p && c.r===p.r && c.v===p.v) return p.label;
+    }
+    return null;
+  }
+
+  function closestPreset(c) {
+    var best = presets[0], bestScore = 0;
+    for (var i = 0; i < presets.length; i++) {
+      var p = presets[i], score = 0;
+      ['s','o','a','p','r','v'].forEach(function(f) { if (c[f] === p[f]) score++; });
+      if (score > bestScore) { best = p; bestScore = score; }
+    }
+    return best;
+  }
+
+  function stateToHash() {
+    var d = {};
+    for (const [k, v] of Object.entries(vars)) {
+      if (v !== defaultVars[k]) d[k] = v;
+    }
+    for (const [k, c] of Object.entries(chars)) {
+      var dc = defaultChars[k];
+      if (c.n !== dc.n) d[k + '.n'] = c.n;
+      var exact = findPreset(c);
+      var dExact = findPreset(dc);
+      if (exact && exact === dExact) continue;
+      if (exact) {
+        d[k + '.P'] = exact;
+      } else {
+        var base = closestPreset(c);
+        d[k + '.P'] = base.label;
+        ['s','o','a','p','r','v'].forEach(function(f) {
+          if (c[f] !== base[f]) d[k + '.' + f] = c[f];
+        });
+      }
+    }
+    if (!Object.keys(d).length) return '#';
+    return '#' + encodeURIComponent(JSON.stringify(d));
+  }
+
+  function loadFromHash() {
+    if (!location.hash || location.hash.length < 2) return;
+    try {
+      var d = JSON.parse(decodeURIComponent(location.hash.slice(1)));
+      // Apply presets first, then overrides
+      for (const [k, v] of Object.entries(d)) {
+        var dot = k.indexOf('.');
+        if (dot === -1) { if (k in vars) vars[k] = v; continue; }
+        var ck = k.slice(0, dot), f = k.slice(dot + 1);
+        if (!chars[ck]) continue;
+        if (f === 'P') {
+          var p = presets.find(function(x) { return x.label === v; });
+          if (p) ['s','o','a','p','r','v'].forEach(function(pf) { chars[ck][pf] = p[pf]; });
+        }
+      }
+      // Then field overrides (including name)
+      for (const [k, v] of Object.entries(d)) {
+        var dot = k.indexOf('.');
+        if (dot === -1) continue;
+        var ck = k.slice(0, dot), f = k.slice(dot + 1);
+        if (!chars[ck] || f === 'P') continue;
+        chars[ck][f] = v;
+      }
+    } catch(e) {}
+  }
+
+  function updateHash() {
+    history.replaceState(null, '', stateToHash());
+  }
+
+  loadFromHash();
+
   const pronounLabels = {n:'Name',s:'Subject',o:'Object',a:'Adjective',p:'Possessive',r:'Reflexive'};
 
   function exampleSentences(c) {
@@ -1203,7 +1289,7 @@ h1,h2,h3 { margin: 0px;}
         btn.style.backgroundColor = highlight[k] ? color : '';
       }
       var summary = controlsEl.querySelector('details.char-card [data-char="' + k + '"][data-field="n"]');
-      if (summary) summary.closest('details').querySelector('summary').innerHTML = chars[k].n + ' <small>(' + chars[k].s + '/' + chars[k].o + ')</small>';
+      if (summary) summary.closest('details').querySelector('summary').innerHTML = chars[k].n + ' <small>(' + chars[k].s + '/' + chars[k].o + ')</small> <span style="font-weight:normal;color:darkgrey;font-size:0.85em">' + charStats[k] + '</span>';
       var ex = controlsEl.querySelector('[data-examples="' + k + '"]');
       if (ex) ex.innerHTML = exampleSentences(chars[k]);
     }
@@ -1227,6 +1313,7 @@ h1,h2,h3 { margin: 0px;}
     contentEl.classList.toggle('hide-directions', !highlightDirections);
     var dirBtn = highlightBar.querySelector('[data-highlight-dir]');
     if (dirBtn) dirBtn.style.backgroundColor = highlightDirections ? directionColor : '';
+    updateHash();
     // update scene jump dropdown
     var sel = document.getElementById('scene-jump');
     if (sel) {
@@ -1290,8 +1377,14 @@ h1,h2,h3 { margin: 0px;}
       e.target.selectedIndex = 0;
     }
   });
+
+  window.addEventListener('hashchange', function() {
+    loadFromHash();
+    buildControls();
+    render();
+  });
 })();
 </script>
-<footer style="text-align:center;color:#999;font-size:0.75em;padding:1em">Built: 2026-05-27T07:20:34Z</footer>
+<footer style="text-align:center;color:#999;font-size:0.75em;padding:1em">Built: 2026-06-15T16:42:24Z</footer>
 </body>
 </html>
